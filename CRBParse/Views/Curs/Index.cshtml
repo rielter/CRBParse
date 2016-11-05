@@ -1,0 +1,59 @@
+﻿@model CRBParse.ViewModels.CursViewModel
+
+@{
+    ViewBag.Title = "Curs";
+}
+
+<h2>Курсы валют</h2>
+
+<div class="panel  panel-primary col-sm-offset-9">
+    <div class="panel-heading">
+        <h4>Курс на @Html.DisplayFor(model => model.CurrentCursDate)</h4>
+    </div>
+    <div class="panel-body row">
+        <div class="col-sm-12">
+            @Html.Label("Доллар")
+            @Model.CurrentDollarValue
+        </div>
+        <div class="col-sm-12">
+            @Html.Label("Евро")
+            @Model.CurrentEuroValue
+        </div>
+    </div>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.Label("CursDate")
+        </th>
+        <th>
+            @Html.Label("EuroValue")
+        </th>
+        <th>
+            @Html.Label("DollarValue")
+        </th>
+        <th>
+            @Html.Label("IsApply")
+        </th>
+    </tr>
+
+    @foreach (var item in Model.Curses)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CursDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EuroValue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DollarValue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsApply)
+            </td>
+        </tr>
+    }
+
+</table>
